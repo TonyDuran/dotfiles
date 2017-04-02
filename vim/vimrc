@@ -17,6 +17,10 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'powerline/powerline'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
+"Plugin 'ayu-theme/ayu-vim'
+"set termguicolors 
+"let ayucolor="dark"
+"colorscheme ayu
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -27,6 +31,12 @@ set relativenumber
 set nu
 set foldmethod=indent
 set foldlevel=99
+set title
+set visualbell
+"set nobackup
+"set nowritebackup
+"set directory=$HOME/.vim/tmp//,.
+
 
 nnoremap <space> za
 noremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
