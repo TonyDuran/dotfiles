@@ -1,26 +1,35 @@
 set nocompatible              " required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+"set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'nathanaelkane/vim-indent-guides'
-"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'powerline/powerline'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'ayu-theme/ayu-vim'
-"set termguicolors 
-"let ayucolor="dark"
-"colorscheme ayu
+"""""""""""""""""""""""""""""""
+"Josh's plugins
+"""""""""""""""""""""""""""""""
+Plugin 'bling/vim-airline'
+Plugin 'vim-syntastic/syntastic'
+Bundle 'trailing-whitespace'
+Bundle 'tomtom/quickfixsigns_vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'mgedmin/pythonhelper.vim'
+Bundle 'leafgarland/typescript-vim'
+
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -38,10 +47,15 @@ set visualbell
 "set directory=$HOME/.vim/tmp//,.
 
 
-nnoremap <space> za
-noremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+"nnoremap <space> za
+"noremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 set clipboard=unnamed
-au BufNewFile,BufRead *.py
+
+vmap \ U
+imap <c-d> <esc>ddi
+augroup python_lines
+    au!
+    au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -49,11 +63,14 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
+augroup END
 
+augroup javascript_lines
 au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
+augroup END
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
