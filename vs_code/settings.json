@@ -1,0 +1,88 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "todohighlight.include": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.php",
+        "**/*.css",
+        "**/*.py",
+        "**/*.scss"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.testing.pytestArgs": [
+        "-v",
+        "-x"
+    ],
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "workbench.welcome.enabled": false,
+    "files.autoSave": "off",
+    "window.zoomLevel": 0,
+    "vim.scroll": 60,
+    "editor.mouseWheelScrollSensitivity": 1,
+    "workbench.sideBar.location": "left",
+    "workbench.editor.enablePreview": false,
+    "editor.renderIndentGuides": true,
+    "editor.detectIndentation": false,
+    "workbench.iconTheme": "material-icon-theme",
+    // "window.openFilesInNewWindow": "off",
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/*.py.orig": true,
+        "**/*.pyc": true,
+        "**/distro": true,
+        "**/docker": true,
+        "**/node_modules": true
+    },
+    "workbench.colorCustomizations": {
+        // "activityBar.background": "#00AA00"
+    },
+    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.renderWhitespace": "none",
+    "editor.minimap.enabled": false,
+    "python.disablePromptForFeatures": [
+        "pylint",
+        "py.test"
+    ],
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "gitlens.keymap": "none",
+    "material-icon-theme.showUpdateMessage": false,
+    "gitlens.historyExplorer.enabled": true,
+    "git.autofetch": true,
+    "explorer.confirmDelete": false,
+    "hg.annotationColor": "#ffffff",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "liveshare.featureSet": "insiders",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    // "python.jediEnabled": false,
+    "workbench.colorTheme": "United Ubuntu",
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "debug.openDebug": "neverOpen",
+    "debug.openExplorerOnEnd": true,
+    "python.jediEnabled": false,
+    "C_Cpp.updateChannel": "Insiders",
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+}

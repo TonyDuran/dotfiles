@@ -1,0 +1,12 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+     {"key": "ctrl+alt+j",                  "command": "list.focusDown",
+                                     "when": "listFocus" },
+    { "key": "ctrl+alt+cmd+k",                  "command": "list.focusUp",
+                                    "when": "listFocus"
+                                },
+                                {
+                                    "key": "ctrl+alt+n",
+                                    "command": "workbench.action.terminal.focusNext"
+                                }
+                            ]
