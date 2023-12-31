@@ -3,14 +3,9 @@
 ## Purpose
 Version Control dotfiles and other important configuration files used in workflow.
 
-
-#### Future items/goals:
-* zsh/bash profiles
-* text file including all other tools normally used
-* Bash script to configure VS Code, tmux, vim, etc
-* Bash script to install tools/dependencies based on OS (adapted for arch/debian/centOS/Mac - hopefully)
-* python script to move/manage config files
-* script adds symlinks from repo to normal file location (for ex: .tmux.conf inside repo will symlink to $HOME/.tmux.conf)
+### TODO:
+- Move scripts adding symlinks to configs to a shared/common location (since it can work in linux)
+- Create a central location for my aliases
 
 ```
 dotfiles/
@@ -29,6 +24,8 @@ dotfiles/
 │   └── [other tools]/  # Other tool-specific configurations
 │
 ├── scripts/            # Utility scripts (not specific to any OS)
+│
+├── shared/            # similar to common (TODO: need to better define each)
 │
 ├── common/             # Common resources and scripts
 │
