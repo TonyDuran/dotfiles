@@ -12,6 +12,13 @@ run_scripts() {
     done
 }
 
+# Create backup_files directory if it doesn't exist
+BACKUP_DIR="${HOME}/backup_files"
+if [ ! -d "${BACKUP_DIR}" ]; then
+    echo "Creating backup_files directory"
+    mkdir -p "${BACKUP_DIR}"
+fi
+
 # Determine Operating System
 OS="$(uname -s)"
 case "$OS" in
