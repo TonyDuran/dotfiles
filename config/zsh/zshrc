@@ -100,9 +100,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#######################
+# Azure Settings
+#######################
+autoload bashcompinit && bashcompinit
+source $(brew --prefix)/etc/bash_completion.d/az
+#######################
+
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+alias lvim="/Users/nio/.local/bin/lvim"
 alias vim="/opt/homebrew/bin/nvim"
-alias vi="/opt/homebrew/bin/nvim"
+#alias vi="/opt/homebrew/bin/nvim"
 PROMPT='%{$fg[yellow]%}[%D{%m/%f/%y} %D{%L:%M:%S}] '$PROMPT
 #eval "$(ssh-agent -s)"
 export PYENV_ROOT="$HOME/.pyenv" 
@@ -112,3 +120,5 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/php@8.0/sbin:$PATH"
+export PATH="~/.local/bin:$PATH"
+alias gs="git status"
