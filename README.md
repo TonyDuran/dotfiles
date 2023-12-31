@@ -12,6 +12,7 @@ Version Control dotfiles and other important configuration files used in workflo
 * python script to move/manage config files
 * script adds symlinks from repo to normal file location (for ex: .tmux.conf inside repo will symlink to $HOME/.tmux.conf)
 
+```
 dotfiles/
 │
 ├── installer.sh        # The main installation script
@@ -34,4 +35,4 @@ dotfiles/
 ├── README.md           # Documentation explaining your dotfiles, setup, etc.
 │
 └── .gitignore          # Gitignore to exclude unnecessary files from the repo
-
+```
