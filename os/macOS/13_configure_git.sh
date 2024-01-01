@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Source common functions
-source ../../common/helpers.sh
+# Source helper functions
+source ../../etc/helpers.sh
 
 # Path to your dotfiles repository
 DOTFILES_DIR=$(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")

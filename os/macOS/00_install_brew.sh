@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Source common functions
-source ../../common/helpers.sh
+# Source helper functions
+source ../../etc/helpers.sh
 
 # Rest of the script...
 
@@ -25,7 +25,7 @@ while IFS= read -r utility; do
     if [ $? -ne 0 ]; then
         echo "Error installing $utility."
     fi
-done < "../shared/brew_utilities_list.txt"
+done < "../../etc/brew_utils.txt"
 
 echo "Installation process completed."
 # ...
