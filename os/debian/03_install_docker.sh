@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Source the helpers from etc/helpers.sh
-source ../../etc/helpers.sh
+# Source helper functions
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+source "$DIR/../../etc/helpers.sh"
 
 # Function to determine system architecture
 get_architecture() {
@@ -20,6 +21,15 @@ get_architecture() {
             ;;
     esac
 }
+
+
+echo "Checking if running inside a Docker container..."
+
+# Check for the .dockerenv file at the root of the filesystem
+if [ -f /.dockerenv ]; then
+    echo "Running inside a Docker container. Skipping Docker installation."
+    exit 0
+fi
 
 echo "Checking for Docker..."
 
