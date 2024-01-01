@@ -18,14 +18,22 @@ find_repo_root() {
     exit 1
 }
 
-# Function to execute only shell scripts in a folder
+
+# Function to execute scripts in a folder
 run_scripts() {
     for script in "$1"/*; do
-        if [ -x "$script" ] && [[ $(file --mime-type -b "$script") == "text/x-shellscript" ]]; then
-            echo "Running $script"
-            . "$script"
+        # Check if the file is executable
+        if [ -x "$script" ]; then
+            # Check if the file starts with a shebang
+            if head -n 1 "$script" | grep -q -E '^#!'; then
+                echo "Running $script"
+                . "$script"
+            else
+                echo "Skipping $script, does not start with a shebang"
+            fi
         else
             echo "Skipping $script, not an executable shell script"
         fi
     done
 }
+
