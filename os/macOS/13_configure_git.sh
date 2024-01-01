@@ -4,7 +4,7 @@
 source ../../common/helpers.sh
 
 # Path to your dotfiles repository
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd ../.. && pwd)"
+DOTFILES_DIR=$(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
 
 # Path to the git configuration in your dotfiles repository
 GIT_CONFIG_SRC="${DOTFILES_DIR}/config/git/gitconfig"
