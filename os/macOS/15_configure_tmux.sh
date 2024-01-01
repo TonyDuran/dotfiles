@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source common functions
-source ../../common/common_functions.sh
+source ../../common/helpers.sh
 
 # Path to your dotfiles repository
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd ../.. && pwd)"

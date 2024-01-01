@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source common functions
-source ../../common/common_functions.sh
+source ../../common/helpers.sh
 
 # Rest of the script...
 
