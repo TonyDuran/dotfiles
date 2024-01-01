@@ -41,3 +41,5 @@ case "$OS" in
         ;;
 esac
 
+echo "Now running common scripts."
+run_scripts "os/shared"
