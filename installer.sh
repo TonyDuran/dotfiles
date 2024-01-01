@@ -1,16 +1,6 @@
 #!/bin/bash
 
-# Function to execute only shell scripts in a folder
-run_scripts() {
-    for script in "$1"/*; do
-        if [ -x "$script" ] && [[ $(file --mime-type -b "$script") == "text/x-shellscript" ]]; then
-            echo "Running $script"
-            . "$script"
-        else
-            echo "Skipping $script, not an executable shell script"
-        fi
-    done
-}
+source ./etc/helpers.sh
 
 # Create backup_files directory if it doesn't exist
 BACKUP_DIR="${HOME}/backup_files"

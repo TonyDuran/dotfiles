@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Source helper functions
-source ../../etc/helpers.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+source "$DIR/../../etc/helpers.sh"
 
 # Rest of the script...
 
@@ -25,7 +26,7 @@ while IFS= read -r utility; do
     if [ $? -ne 0 ]; then
         echo "Error installing $utility."
     fi
-done < "../../etc/brew_utils.txt"
+done < "$DIR/../../etc/brew_utils.txt"
 
 echo "Installation process completed."
 # ...
