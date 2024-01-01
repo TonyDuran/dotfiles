@@ -6,10 +6,10 @@ source "$DIR/../../etc/helpers.sh"
 
 
 # Path to your dotfiles repository
-DOTFILES_DIR=$(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
+pushd $(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
 
 # Path to the zsh configuration in your dotfiles repository
-ZSH_CONFIG_SRC="${DOTFILES_DIR}/config/zsh/zshrc"
+ZSH_CONFIG_SRC="${PWD}/config/zsh/zshrc"
 
 # Path where the zsh config should be linked in the home directory
 ZSH_CONFIG_DEST="${HOME}/.zshrc"
@@ -37,3 +37,4 @@ echo "Creating symlink for zsh config"
 ln -s "${ZSH_CONFIG_SRC}" "${ZSH_CONFIG_DEST}"
 echo "Zsh configuration is set up."
 
+popd

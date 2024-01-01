@@ -5,10 +5,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 source "$DIR/../../etc/helpers.sh"
 
 # Path to your dotfiles repository
-DOTFILES_DIR=$(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
+pushd "$(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")"
 
 # Path to the Vim configuration in your dotfiles repository
-VIM_CONFIG_SRC="${DOTFILES_DIR}/config/vim/vimrc"
+VIM_CONFIG_SRC="${PWD}/config/vim/vimrc"
 
 # Path where the Vim config should be linked in the home directory
 VIM_CONFIG_DEST="${HOME}/.vimrc"
@@ -36,3 +36,4 @@ echo "Creating symlink for Vim config"
 ln -s "${VIM_CONFIG_SRC}" "${VIM_CONFIG_DEST}"
 echo "Vim configuration is set up."
 
+popd

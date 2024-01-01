@@ -5,10 +5,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 source "$DIR/../../etc/helpers.sh"
 
 # Path to your dotfiles repository
-DOTFILES_DIR=$(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
+pushd $(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
 
 # Path to the tmux configuration in your dotfiles repository
-TMUX_CONFIG_SRC="${DOTFILES_DIR}/config/tmux/tmux.conf"
+TMUX_CONFIG_SRC="${PWD}/config/tmux/tmux.conf"
 
 # Path where the tmux config should be linked in the home directory
 TMUX_CONFIG_DEST="${HOME}/.tmux.conf"
@@ -42,3 +42,4 @@ else
     echo "tmux is not installed. Please install tmux first."
 fi
 
+popd

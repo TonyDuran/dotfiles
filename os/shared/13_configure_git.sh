@@ -5,10 +5,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 source "$DIR/../../etc/helpers.sh"
 
 # Path to your dotfiles repository
-DOTFILES_DIR=$(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
+pushd $(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
 
 # Path to the git configuration in your dotfiles repository
-GIT_CONFIG_SRC="${DOTFILES_DIR}/config/git/gitconfig"
+GIT_CONFIG_SRC="${PWD}/config/git/gitconfig"
 
 # Path where the git config should be linked in the home directory
 GIT_CONFIG_DEST="${HOME}/.gitconfig"
@@ -36,3 +36,4 @@ echo "Creating symlink for git config"
 ln -s "${GIT_CONFIG_SRC}" "${GIT_CONFIG_DEST}"
 echo "Git configuration is set up."
 
+popd
