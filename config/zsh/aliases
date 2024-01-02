@@ -1,1 +1,4 @@
 alias hello_world="echo 'hello'"
+#Need to fix both lvim/vim to work agnostic
+alias lvim="/Users/nio/.local/bin/lvim"
+alias vim="/opt/homebrew/bin/nvim"

@@ -4,7 +4,13 @@
 Version Control dotfiles and other important configuration files used in workflow.
 
 ### TODO:
-- Create a central location for my aliases
+- Test on MacOS (possibly VM)
+- move exports to separate file same as aliases
+- ??
+    - keep up-to-date
+    - maybe add utilities with gh gists
+    - get a windows workflow (probably with WSL)
+    - add more customization
 
 ```
 dotfiles/
