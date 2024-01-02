@@ -24,5 +24,5 @@ WORKDIR /dotfiles
 #     && find /dotfiles -name "*.sh" -exec chmod +x {} \;
 
 # Run the installer script (adjust this if your installer requires arguments)
-CMD ./installer.sh && ./tests/verify_symlinks.sh && ./tests/test_aliases.sh
+ CMD ./installer.sh && ./tests/verify_symlinks.sh && ./tests/test_aliases.sh
 

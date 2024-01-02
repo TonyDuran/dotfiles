@@ -1,13 +1,18 @@
 #!/bin/bash
 
-# Source the .zshrc file
-source "${HOME}/.zshrc"
+# Load Zsh as an interactive shell
+zsh -i -c '
 
-# Test for a specific alias - replace 'myalias' with an actual alias from your file
-if type hello_world &>/dev/null; then
-    echo "Alias 'hello_world' is loaded."
+# Source the .zshrc file
+source $HOME/.zshrc
+
+# Check if the specific alias is set
+alias_name="hello_world"
+if alias $alias_name >/dev/null 2>&1; then
+    echo "Alias test passed: Alias '"'"'$alias_name'"'"' is loaded."
 else
-    echo "Test failed: Alias 'hello_world' is not loaded."
+    echo "Alias test failed: Alias '"'"'$alias_name'"'"' is not loaded."
     exit 1
 fi
+'
 
