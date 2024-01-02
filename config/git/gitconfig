@@ -8,3 +8,6 @@ email = tony-duran@outlook.com
   d = diff
   ds = diff --staged
   s = status
+  show = stash show 0 -p
+  slist = stash list
+  sdrop = stash drop
