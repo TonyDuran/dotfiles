@@ -15,6 +15,7 @@ dotfiles/
 ├── os/                 # OS-specific scripts and configurations
 │   ├── debian/         # Debian Linux specific scripts and configs
 │   └── macOS/          # macOS specific scripts and configs
+│   └── shared/         # common scripts and configs
 │
 ├── config/             # Configuration files for various tools and applications
 │   ├── git/            # Git configuration (e.g., .gitconfig, .gitignore_global)
@@ -23,11 +24,11 @@ dotfiles/
 │   ├── tmux/           # Tmux configuration (e.g., .tmux.conf)
 │   └── [other tools]/  # Other tool-specific configurations
 │
-├── scripts/            # Utility scripts (not specific to any OS)
+├── scripts/            # Utility/Helper scripts (not used atm)
 │
-├── shared/            # similar to common (TODO: need to better define each)
+├── etc/                # currently, my folder for text/functions used by installer
 │
-├── common/             # Common resources and scripts
+├── tests/             # Dockerfile and scripts to test installation
 │
 ├── README.md           # Documentation explaining your dotfiles, setup, etc.
 │
