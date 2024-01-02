@@ -107,6 +107,9 @@ autoload bashcompinit && bashcompinit
 source $(brew --prefix)/etc/bash_completion.d/az
 #######################
 
+# Source the aliases file
+[ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
+
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 alias lvim="/Users/nio/.local/bin/lvim"
 alias vim="/opt/homebrew/bin/nvim"

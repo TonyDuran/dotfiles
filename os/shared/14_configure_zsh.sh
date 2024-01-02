@@ -7,13 +7,15 @@ source "$DIR/../../etc/helpers.sh"
 
 # Path to your dotfiles repository
 pushd $(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
-
+# Find the root directory of the dotfiles repository
+# Path to the aliases file in your dotfiles repository
+ALIASES_SRC="${PWD}/config/zsh/aliases"
+# Path where the .aliases file should be linked in the home directory
+ALIASES_DEST="${HOME}/.aliases"
 # Path to the zsh configuration in your dotfiles repository
 ZSH_CONFIG_SRC="${PWD}/config/zsh/zshrc"
-
 # Path where the zsh config should be linked in the home directory
 ZSH_CONFIG_DEST="${HOME}/.zshrc"
-
 # Directory for backup files
 BACKUP_DIR="${HOME}/backup_files"
 
@@ -36,5 +38,20 @@ fi
 echo "Creating symlink for zsh config"
 ln -s "${ZSH_CONFIG_SRC}" "${ZSH_CONFIG_DEST}"
 echo "Zsh configuration is set up."
+
+echo "Setting up aliases file"
+# Check if a .aliases file already exists and is not a symlink
+if [ -f "${ALIASES_DEST}" ] && [ ! -L "${ALIASES_DEST}" ]; then
+    echo "Existing .aliases file found. Backing up..."
+    mv "${ALIASES_DEST}" "${ALIASES_DEST}.bk"
+fi
+
+# Remove existing symlink to avoid conflicts
+if [ -L "${ALIASES_DEST}" ]; then
+    rm "${ALIASES_DEST}"
+fi
+
+# Create a new symlink for the aliases file
+ln -s "${ALIASES_SRC}" "${ALIASES_DEST}"
 
 popd

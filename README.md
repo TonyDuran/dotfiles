@@ -4,7 +4,6 @@
 Version Control dotfiles and other important configuration files used in workflow.
 
 ### TODO:
-- Move scripts adding symlinks to configs to a shared/common location (since it can work in linux)
 - Create a central location for my aliases
 
 ```
