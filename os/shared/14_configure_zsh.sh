@@ -12,6 +12,11 @@ pushd $(find_repo_root "$(dirname "${BASH_SOURCE[0]}")")
 ALIASES_SRC="${PWD}/config/zsh/aliases"
 # Path where the .aliases file should be linked in the home directory
 ALIASES_DEST="${HOME}/.aliases"
+# Path to the export file in your dotfiles repository
+EXPORTS_SRC="${PWD}/config/zsh/exports"
+# Path where the .exports file should be linked in the home directory
+EXPORTS_DEST="${HOME}/.exports"
+#
 # Path to the zsh configuration in your dotfiles repository
 ZSH_CONFIG_SRC="${PWD}/config/zsh/zshrc"
 # Path where the zsh config should be linked in the home directory
@@ -46,12 +51,28 @@ if [ -f "${ALIASES_DEST}" ] && [ ! -L "${ALIASES_DEST}" ]; then
     mv "${ALIASES_DEST}" "${ALIASES_DEST}.bk"
 fi
 
+echo "Setting up exports file"
+# Check if a .aliases file already exists and is not a symlink
+if [ -f "${EXPORTS_DEST}" ] && [ ! -L "${EXPORTS_DEST}" ]; then
+    echo "Existing .aliases file found. Backing up..."
+    mv "${EXPORTS_DEST}" "${EXPORTS_DEST}.bk"
+fi
+
+
+
 # Remove existing symlink to avoid conflicts
 if [ -L "${ALIASES_DEST}" ]; then
     rm "${ALIASES_DEST}"
 fi
 
+# Remove existing symlink to avoid conflicts
+if [ -L "${EXPORTS_DEST}" ]; then
+    rm "${EXPORTS_DEST}"
+fi
+
+
 # Create a new symlink for the aliases file
 ln -s "${ALIASES_SRC}" "${ALIASES_DEST}"
+ln -s "${EXPORTS_SRC}" "${EXPORTS_DEST}"
 
 popd
