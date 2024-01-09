@@ -109,6 +109,7 @@ source $(brew --prefix)/etc/bash_completion.d/az
 
 # Source the aliases file
 [ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
+[ -f "${HOME}/.work_only" ] && source "${HOME}/.work_only"
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 PROMPT='%{$fg[yellow]%}[%D{%m/%f/%y} %D{%L:%M:%S}] '$PROMPT
