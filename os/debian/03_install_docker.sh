@@ -22,13 +22,12 @@ get_architecture() {
     esac
 }
 
-
 echo "Checking if running inside a Docker container..."
 
 # Check for the .dockerenv file at the root of the filesystem
 if [ -f /.dockerenv ]; then
     echo "Running inside a Docker container. Skipping Docker installation."
-    return 0
+    exit 0
 fi
 
 echo "Checking for Docker..."
@@ -39,32 +38,44 @@ if command_exists docker; then
 else
     echo "Docker not found. Installing Docker..."
 
-    # Update the apt package index
-    sudo apt-get update
+    # Determine the Linux distribution
+    DISTRO=$(get_distro)
 
-    # Install packages to allow apt to use a repository over HTTPS
-    sudo apt-get install -y \
-        apt-transport-https \
-        ca-certificates \
-        curl \
-        gnupg-agent \
-        software-properties-common
+    if [ "$DISTRO" = "Kali" ]; then
+        echo "Detected Kali Linux. Installing Docker using Kali-specific commands..."
+        sudo apt update
+        sudo apt install -y docker.io
+        sudo systemctl enable docker --now
+        sudo usermod -aG docker $USER
+    else
+        # Assume Debian-based system if not Kali
+        # Update the apt package index
+        sudo apt-get update
 
-    # Add Docker’s official GPG key
-    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+        # Install packages to allow apt to use a repository over HTTPS
+        sudo apt-get install -y \
+            apt-transport-https \
+            ca-certificates \
+            curl \
+            gnupg-agent \
+            software-properties-common
 
-    # Determine system architecture
-    ARCH=$(get_architecture)
+        # Add Docker’s official GPG key
+        curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
-    # Set up the stable repository based on architecture
-    sudo add-apt-repository \
-        "deb [arch=${ARCH}] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+        # Determine system architecture
+        ARCH=$(get_architecture)
 
-    # Update the apt package index again
-    sudo apt-get update
+        # Set up the stable repository based on architecture
+        sudo add-apt-repository \
+            "deb [arch=${ARCH}] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
-    # Install the latest version of Docker Engine and containerd
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+        # Update the apt package index again
+        sudo apt-get update
+
+        # Install the latest version of Docker Engine and containerd
+        sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    fi
 
     # Check if Docker was successfully installed
     if command_exists docker; then

@@ -5,6 +5,15 @@ command_exists() {
     command -v "$1" &> /dev/null
 }
 
+# Function to determine Linux distribution
+get_distro() {
+    local distro
+    distro=$(lsb_release -is)
+    echo "$distro"
+}
+
+
+
 find_repo_root() {
     local dir=$1
     while [[ $dir != / ]]; do
