@@ -17,7 +17,7 @@ get_architecture() {
             ;;
         *)
             echo "Unsupported architecture: $arch" >&2
-            exit 1
+            return 1
             ;;
     esac
 }
@@ -27,7 +27,7 @@ echo "Checking if running inside a Docker container..."
 # Check for the .dockerenv file at the root of the filesystem
 if [ -f /.dockerenv ]; then
     echo "Running inside a Docker container. Skipping Docker installation."
-    exit 0
+    return 0
 fi
 
 echo "Checking for Docker..."
@@ -82,7 +82,7 @@ else
         echo "Docker installed successfully."
     else
         echo "Error: Docker installation failed."
-        exit 1
+        return 1
     fi
 fi
 
