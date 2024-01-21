@@ -1,3 +1,4 @@
+![example workflow](https://github.com/TonyDuran/dotfiles/actions/workflows/github-actions.yml/badge.svg)
 # dotfiles
 
 ## Purpose
