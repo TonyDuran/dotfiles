@@ -8,6 +8,8 @@ declare -A symlinks=(
     [".tmux.conf"]="/dotfiles/config/tmux/tmux.conf"
     [".zshrc"]="/dotfiles/config/zsh/zshrc"
     [".gitconfig"]="/dotfiles/config/git/gitconfig"
+    [".config/tmux/tmux-macosx.conf"]="/dotfiles/config/tmux/tmux-macosx.conf"
+    [".config/tmux/tmux-linux.conf"]="/dotfiles/config/tmux/tmux-linux.conf"
 )
 
 # Check each symlink

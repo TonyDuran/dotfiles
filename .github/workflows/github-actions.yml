@@ -1,0 +1,32 @@
+name: Test installer.sh
+run-name: ${{ github.actor }} is testing installer.sh 🚀
+on: [push]
+
+jobs:
+  test:
+    name: Run tests in Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build -t dotfiles-test -f Dockerfile .
+
+      - name: Run tests
+        run: docker run --name dotfiles-container dotfiles-test
+
+      - name: Get exit code
+        id: exit_code
+        run: echo "::set-output name=exit_code::$(docker inspect dotfiles-container --format='{{.State.ExitCode}}')"
+
+      - name: Check test result
+        if: steps.exit_code.outputs.exit_code != '0'
+        run: |
+          echo "Test failed: The installer script encountered an error."
+          exit 1
+
+      - name: Remove Docker container
+        if: always()
+        run: docker rm dotfiles-container
