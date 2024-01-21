@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Docker image
-        run: docker build -t dotfiles-test -f docker/Dockerfile docker
+        run: docker build -t dotfiles-test -f tests/Dockerfile tests
 
       - name: Run tests
         run: docker run --name dotfiles-container dotfiles-test
