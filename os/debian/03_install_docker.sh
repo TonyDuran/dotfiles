@@ -43,8 +43,8 @@ else
 
     if [ "$DISTRO" = "Kali" ]; then
         echo "Detected Kali Linux. Installing Docker using Kali-specific commands..."
-        sudo apt update
-        sudo apt install -y docker.io
+        sudo apt-get update
+        sudo apt-get install -y docker.io
         sudo systemctl enable docker --now
         sudo usermod -aG docker $USER
     else
@@ -85,4 +85,3 @@ else
         return 1
     fi
 fi
-
