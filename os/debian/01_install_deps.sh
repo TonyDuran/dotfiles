@@ -9,6 +9,7 @@ apt-get update && apt-get install -y \
     --no-install-recommends
 
 apt-get install -y tmux
+apt-get install -y xclip
 
 
 echo "Installing Lunar Vim Dependencies"
