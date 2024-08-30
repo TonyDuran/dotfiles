@@ -107,6 +107,12 @@ autoload bashcompinit && bashcompinit
 source $(brew --prefix)/etc/bash_completion.d/az
 #######################
 
+#echo 'vmx.fullpath = "/bin/vmx"' >> /etc/vmware/config
+#echo 'isolation.tools.copy.disable="FALSE"' >> /etc/vmware/config
+#echo 'isolation.tools.paste.disable="FALSE"' >> /etc/vmware/config
+
+
+
 # Source the aliases file
 [ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
 [ -f "${HOME}/.work_only" ] && source "${HOME}/.work_only"
