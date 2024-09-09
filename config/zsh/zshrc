@@ -103,8 +103,8 @@ source $ZSH/oh-my-zsh.sh
 #######################
 # Azure Settings
 #######################
-autoload bashcompinit && bashcompinit
-source $(brew --prefix)/etc/bash_completion.d/az
+#autoload bashcompinit && bashcompinit
+#source $(brew --prefix)/etc/bash_completion.d/az
 #######################
 
 #echo 'vmx.fullpath = "/bin/vmx"' >> /etc/vmware/config
@@ -120,6 +120,7 @@ source $(brew --prefix)/etc/bash_completion.d/az
 
 PROMPT='%{$fg[yellow]%}[%D{%m/%f/%y} %D{%L:%M:%S}] '$PROMPT
 #eval "$(ssh-agent -s)"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv init --path)"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+export EDITOR=vim

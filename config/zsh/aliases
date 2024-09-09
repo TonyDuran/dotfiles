@@ -1,7 +1,6 @@
-alias hello_world="echo 'hello'"
 #Need to fix both lvim/vim to work agnostic
-alias lvim="$HOME/.local/bin/lvim"
-alias vim="/opt/homebrew/bin/nvim"
+#alias lvim="$HOME/.local/bin/lvim"
+#alias vim="/opt/homebrew/bin/nvim"
 
 alias zsh_edit="vim $HOME/.zshrc"
 alias zsh_source="source $HOME/.zshrc"
