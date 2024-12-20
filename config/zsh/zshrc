@@ -111,7 +111,34 @@ source $ZSH/oh-my-zsh.sh
 #echo 'isolation.tools.copy.disable="FALSE"' >> /etc/vmware/config
 #echo 'isolation.tools.paste.disable="FALSE"' >> /etc/vmware/config
 
-
+# custom_reverse_search_deduped() {
+#     # Temporarily set the history file to the deduplicated history file
+#     local original_histfile="$HISTFILE"
+#     HISTFILE=~/.zsh_deduped_history
+#
+#     # Ensure the deduplicated history file is loaded
+#     fc -R "$HISTFILE"
+#
+#     # Start reverse search on the deduplicated history
+#     zle history-incremental-search-backward
+#
+#     # Restore the original history file after the search
+#     HISTFILE="$original_histfile"
+#     fc -R "$HISTFILE"
+# }
+#
+# zle -N custom_reverse_search_deduped
+#
+# bindkey '^K' custom_reverse_search_deduped
+#
+# save_commands() {
+#     local deduped_file=~/.zsh_deduped_history
+#     echo "$*" >> "$deduped_file"
+#     # Deduplicate the file to avoid repeated commands
+#     awk '!seen[$0]++' "$deduped_file" > "${deduped_file}.tmp" && mv "${deduped_file}.tmp" "$deduped_file"
+#     echo "Command saved and deduplicated in $deduped_file."
+# }
+#
 
 # Source the aliases file
 [ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
