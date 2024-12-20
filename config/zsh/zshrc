@@ -139,6 +139,19 @@ source $ZSH/oh-my-zsh.sh
 #     echo "Command saved and deduplicated in $deduped_file."
 # }
 #
+set_target() {
+    echo "$1" > ~/.target_ip
+    echo "Target IP updated to $1"
+}
+
+get_target(){
+    export TARGET=$(cat ~/.target_ip)
+    echo "$TARGET"
+}
+# comment this out in mac
+pbcopy() {
+    xclip -selection clipboard "$@"
+}
 
 # Source the aliases file
 [ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
