@@ -153,6 +153,12 @@ pbcopy() {
     xclip -selection clipboard "$@"
 }
 
+get_tunny() {
+    export TUNIP=$(ip -o -4 addr show tun0 | awk '{print $4}' | cut -d/ -f1)
+    echo "$TUNIP"
+}
+
+
 # Source the aliases file
 [ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
 [ -f "${HOME}/.work_only" ] && source "${HOME}/.work_only"
@@ -164,3 +170,6 @@ PROMPT='%{$fg[yellow]%}[%D{%m/%f/%y} %D{%L:%M:%S}] '$PROMPT
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 export EDITOR=vim
+
+get_target > /dev/null
+get_tunny > /dev/null
