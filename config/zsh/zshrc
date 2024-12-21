@@ -158,6 +158,14 @@ get_tunny() {
     echo "$TUNIP"
 }
 
+tclippy() {
+    local tmpfile="/tmp/tmux_clipboard.txt"
+    tmux show-buffer > "$tmpfile"
+    cat "$tmpfile" | xclip -selection clipboard
+    echo "Text copied to clipboard and saved to $tmpfile"
+}
+
+
 
 # Source the aliases file
 [ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
