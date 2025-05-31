@@ -15,3 +15,5 @@ alias ghide_unstaged='git ls-files --modified --others --exclude-standard | xarg
 alias prune_branches="git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 #####
 alias tmux_zsh_source_all="tmux list-panes -s -F '#{session_name}:#{window_index}.#{pane_index}' | xargs -I {} tmux send-keys -t {} 'source ~/.zshrc' Enter"
+alias ghetto_b64='python3 -c "import base64, sys; print(base64.b64decode(sys.argv[1]))"'
+
