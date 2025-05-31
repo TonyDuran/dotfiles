@@ -139,6 +139,17 @@ source $ZSH/oh-my-zsh.sh
 #     echo "Command saved and deduplicated in $deduped_file."
 # }
 #
+set_hostname(){
+    echo "$1" > ~/.target_hostname
+    echo "Target Hostname updated to $1"
+}
+
+get_hostname(){
+    export TARGET_HOSTNAME=$(cat ~/.target_hostname)
+    echo "$TARGET_HOSTNAME"
+}
+
+
 set_target() {
     echo "$1" > ~/.target_ip
     echo "Target IP updated to $1"
@@ -148,6 +159,7 @@ get_target(){
     export TARGET=$(cat ~/.target_ip)
     echo "$TARGET"
 }
+
 # comment this out in mac
 pbcopy() {
     xclip -selection clipboard "$@"
@@ -165,6 +177,16 @@ tclippy() {
     echo "Text copied to clipboard and saved to $tmpfile"
 }
 
+export_unique_history() {
+  # File to store the unique history
+  local output_file="${1:-unique_history.txt}"
+
+  # Read the history safely and export unique commands
+  fc -R  # Load the current history
+  fc -ln 1 | awk '!seen[$0]++' > "$output_file"
+
+  echo "Unique history commands exported to $output_file."
+}
 
 
 # Source the aliases file
@@ -174,10 +196,14 @@ tclippy() {
 
 PROMPT='%{$fg[yellow]%}[%D{%m/%f/%y} %D{%L:%M:%S}] '$PROMPT
 #eval "$(ssh-agent -s)"
-#eval "$(pyenv init --path)"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 export EDITOR=vim
 
 get_target > /dev/null
 get_tunny > /dev/null
+
+
+imwheel -b "4 5" > /dev/null 2>&1
+export PATH=$HOME/.local/bin:$PATH
